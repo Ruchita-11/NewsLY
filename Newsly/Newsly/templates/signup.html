@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup - Newsly</title>
+    <style>
+        body{
+            background-image: url("https://img.freepik.com/free-vector/earth-blue-wave-background_1017-36678.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .login-section {
+            
+    padding: 10px 10px; 
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.login-box {
+    background-color: rgba(255, 255, 255, 0.8); /* White background with 80% opacity */
+    border: 1px solid rgba(220, 220, 220, 0.5); /* Lighter, translucent border */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+}
+nav .logo h1 {
+    color:black;
+    font-size: 50px;
+    font: bolder;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-section h2 {
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin: 20px 0;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: blue;
+    padding: 10px 20px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+}
+
+button:hover {
+    background-color: #e65c00;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>NEWSLY</h1>
+            </div>
+        </nav>
+    </header>
+
+    <section class="login-section">
+        <div class="login-box">
+        <h2>Create Your new Account</h2>
+        <form id="signupForm" action="/signupForm" method="post">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Confirm Password:</label>
+                <input type="password" id="Confirm-password" name="cpassword" required>
+            </div>
+            <button type="submit" class="btn" >Sign up</button>
+            <div><p>{{status}}</p></div>
+        </form>
+        <p>Already have an account? <a href="/log">Login</a></p>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 NEWSLY. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    const loginForm = document.getElementById('loginForm');
+
+    loginForm.addEventListener('submit', function (event) {
+        event.preventDefault(); 
+
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        const ConfirmPassword = document.getElementById('Confirm-password').value;
+        
+        a=console.log('Password:', password);
+        b=console.log('ConfirmPassword:', Confirm-password);
+
+    });
+});
+    </script>
+</body>
+</html>

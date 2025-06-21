@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login-Newsly</title>
+    <style> 
+        body{
+            background-image: url("https://img.freepik.com/free-vector/earth-with-digital-network-connection-background_1017-33689.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .login-section {
+            
+    padding: 40px 10px; 
+    padding-right: 130px;
+    text-align: center;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+
+}
+.login-box {
+    background-color: rgba(255, 255, 255, 0.8); /* White background with 80% opacity */
+    border: 1px solid rgba(220, 220, 220, 0.5); /* Lighter, translucent border */
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+}
+nav .logo h1 {
+    /*border: 1px solid rgba(220, 220, 220, 0.5);*/
+    color:black;
+    font-size: 30px;
+    font: bolder;
+    margin: auto;
+   /* padding: 10px 10px;*/
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-section h2 {
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin: 20px 0;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: black;
+    padding: 10px 20px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+}
+
+button:hover {
+    background-color: #e65c00;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>NEWSLY</h1>
+            </div>
+        </nav>
+    </header>
+
+    <section class="login-section">
+        <div class="login-box">
+        <img src="../static/assets/images/logo.png" height="80px" width="80px" alt="Logo">   
+        <h2>Login to Your Account</h2>
+        <form id="loginForm" action="/loginForm" method="post">
+            <div class="form-group" >
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn">Login</button>
+            <div><p>{{result}}</p></div>
+        </form>
+        <p>Don't have an account? <a href="/sign">Sign up</a></p>
+        </div>
+    </section>
+
+    <footer>    
+        <p>© 2024 NEWSLY. All Rights Reserved.</p>
+    </footer>
+
+    
+</body>
+</html>

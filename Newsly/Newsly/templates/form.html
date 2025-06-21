@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News upload</title>
+    <style>
+        body {
+            background-image: url("../static/assets/images/formback.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            background-color: var(--extra-light);
+            z-index: 9;
+            padding: 10px 0;
+        }
+
+        .container-fluid {
+            display: flex;
+            border: black;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .navbar-brand span {
+            color: #fa6021;
+        }
+
+        .navbar-nav {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+            gap: 20px;
+        }
+
+        .navbar-nav a {
+            font-weight: 500;
+            color: var(--text-dark);
+            text-decoration: none;
+            padding: 8px 16px;
+            transition: color 0.3s;
+        }
+
+        .navbar-nav a:hover {
+            text-decoration: underline;
+            color: var(--primary-color);
+        }
+
+        .upload-form {
+            padding: 10px 10px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .upload-box {
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(220, 220, 220, 0.5);
+            margin-top: 50px;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .login-section h2 {
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin: 20px 0;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            max-width: 300px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: none;
+            /* Disable manual resizing */
+        }
+        form,
+        select {
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 300px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: none;
+            /* Disable manual resizing */
+        }
+
+        button {
+            background-color: #ff6600;
+            padding: 10px 20px;
+            margin-top: 10px;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2em;
+        }
+
+        button:hover {
+            background-color: #e65c00;
+        }
+    </style>
+    <script>
+        function autoResizeTextarea() {
+            const textarea = document.getElementById('description');
+            textarea.style.height = 'auto'; // Reset height to auto to shrink if needed
+            textarea.style.height = textarea.scrollHeight + 'px'; // Set height to scrollHeight to expand
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand logo">News<span>Ly</span></a>
+                <div class="navbar-nav">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link" href="#">About</a>
+                    <a class="nav-link" href="#">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <section class="upload-form">
+        <div class="upload-box">
+            <h1>Upload news here</h1>
+            <form id="formid" action="/adminform" method="post">
+                <div id="form-group">
+                    <label for="category">Category:</label>
+                    <select id="category" name="category" required>
+                        <option value="" disabled selected hidden>Choose a category</option>
+                        <option value="Technology">Technology</option>
+                        <option value="Sports">Sports</option>
+                        <option value="Politics">Politics</option>
+                        <option value="Entertainment">Entertainment</option>
+                        <option value="Health">Weather</option>
+                        <option value="Business">Government</option>
+                    </select>
+                </div>
+                <div id="form-group">
+                    <label for="location">Sub Category:  (Optional)</label>
+                    <input type="text" id="subcategory" name="subcategory">
+                </div>
+                <div id="form-group">
+                    <label for="title">Title:</label>
+                    <input type="text" id="title" name="title" required>
+                </div>
+                <div id="form-group">
+                    <label for="location">Location:</label>
+                    <input type="text" id="location" name="location" required>
+                </div>
+                <div id="form-group">
+                    <label for="image">Image:</label>
+                    <input type="text" id="image" name="image" required>
+                </div>
+                <div id="form-group">
+                    <label for="description">Description:</label>
+                    <textarea id="description" name="description" rows="1" required
+                        oninput="autoResizeTextarea()"></textarea>
+                </div>
+
+                <button type="submit" class="btn">Upload</button>
+            </form>
+            <div>
+                <p>{{status}}</p>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
